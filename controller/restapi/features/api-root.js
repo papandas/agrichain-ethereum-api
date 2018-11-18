@@ -28,6 +28,65 @@ const ethAmt = '0.05';
 const adminAcc = '0xaE0ba611603Ec52104c9aB52deDA584806BBEc14';
 const privateKey = '687d850ccdb847b79610a2def6cdb132a0e61457f67b9c9d8b9bcf9d5b9e507b';
 
+
+exports.postAssets = function(req,res,next){
+    const { from_account, privateKey, harvest, commodity, acres, _yield, basic, Insurance, costs, sellprice} = req.body; 
+
+    web3.eth.getBalance(from_account)
+    .then((reply)=>{
+        var ethBal = web3.utils.fromWei(reply, 'ether');
+        
+        if(ethBal > 0){
+
+            const contract = new web3.eth.Contract(ABI, ContractAddress);
+
+            web3.eth.getTransactionCount(from_account)
+            .then((txCount)=>{
+
+                const data = contract.methods.PostAssets(harvest, commodity, acres, _yield, basic, Insurance, costs, parseInt(_yield), sellprice).encodeABI();
+                //value: web3.utils.toHex(web3.utils.toWei('1', 'ether')),
+                    
+                const txObject = {
+                    nonce: web3.utils.toHex(txCount),
+                    to: ContractAddress,
+                    gasLimit: web3.utils.toHex(6000000),
+                    gasPrice: web3.utils.toHex(web3.utils.toWei('600', 'gwei')),
+                    data: data
+                }
+ 
+                const tx = new Tx(txObject);
+                const signKey = Buffer.from(privateKey.substring(2), 'hex');
+                tx.sign(signKey);
+
+                const serializedTransaction = tx.serialize();
+                const raw = '0x' + serializedTransaction.toString('hex');
+            
+                web3.eth.sendSignedTransaction(raw)
+                .then((txHash)=>{
+                    res.send({'result':'success','txHash':txHash})
+                })
+                .catch((error)=>{
+                    console.log(error);
+                    res.send({'result':'failed','error': 'Error send Signed Transaction: ' + error.message})
+                })
+            })
+            .catch((error)=>{
+                res.send({'result':'failed','error':'Error get Transaction Count: ' + error.message})
+            })
+            
+
+        }else{
+            res.send({'result':'failed', 'error':'No ether balance.'});
+        }
+    })
+    .catch(()=>{
+        console.log(error);
+        res.send({'result':'failed','error': 'Get Balance Failed: ' + error.message})
+    })
+
+    
+}
+
 exports.SignIn = function(req, res) {
     res.send("Hello World!");
 }

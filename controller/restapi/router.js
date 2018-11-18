@@ -39,19 +39,26 @@ router.use(function(req, res, next) {
 });
 
 
-router.post('/test/getBalance*', test.getBalance);
-router.get('/test/createNewAccount*', test.createNewAccount );
-router.post('/test/transferEth*', test.transferEth);
-router.post('/test/verifyContract*', test.verifyContract);
-router.post('/test/signup*', test.signup);
-router.post('/test/signin*', test.signin);
-router.post('/test/postAssets*', test.postAssets);
+router.post('/api/getBalance*', test.getBalance);
+router.get('/api/createNewAccount*', test.createNewAccount );
+router.post('/api/transferEth*', test.transferEth);
+router.post('/api/verifyContract*', test.verifyContract);
+router.get('/api/distributors*', test.AllDistributors);
+router.get('/api/producers*', test.getAllProducers);
+router.get('/api/consumers*', test.getAllConsumers);
+router.post('/api/signup*', test.signup);
+router.post('/api/signin*', test.signin);
 
-router.get('/api/user/signin*', root.SignIn);
-router.get('/api/user/createnew*', root.createNew);
-router.post('/api/user/freebalance*', root.freebalance);
-router.post('/api/user/signup*', root.SignUp);
+router.post('/api/assets/new*', test.postAssets); 
+router.post('/api/assets/update*', test.updateAsset);
+router.post('/api/assets/all*', test.getAssetsList);
 
-//router.post('/api/user/signup*', root.SignIn);
+router.get('/api/orders/all', test.GetAllOrders);
+router.post('/api/orders/new',test.CreateOrder);
+router.post('/api/orders/update',test.UpdateOrder);
+
+router.post('/api/purchase/distributor*', test.DistributorPurchase);
+router.post('/api/purchase/consumer*', test.ConsumerPurchase);
+
 
 

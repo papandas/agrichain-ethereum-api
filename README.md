@@ -4,6 +4,9 @@ Ethereum Smart Contract deployed on Rinkeby Test Network [0xb8Ebea87fF6cB183Bea5
 
 Front-end with Metamask [Ethereum POC](https://papandas.github.io/Agrichain-Ethereum-POC/).
 
+API Service hosted on [Heroku](https://agrichain-ethereum-api.herokuapp.com/).
+
+
 
 | Endpoint                  | Method | Parameters |
 | ---                       | ---    | --- |

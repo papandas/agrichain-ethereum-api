@@ -17,4 +17,4 @@
 | /api/orders/new           | POST   | from_account:String, privateKey:String, to_address:String, assetId:String, quantity:String, price:String |
 | /api/orders/update        | POST   | from_account:String, privateKey:String, orderId:String, state:String, replyState:String |
 | /api/purchase/distributor | POST   | from_account:String, privateKey:String, to_address:String, orderId:String |
-| /api/purchase/consumer    | POST   | |
+| /api/purchase/consumer    | POST   | from_account:String, privateKey:String, to_address:String, assetId:String, quantity:String |

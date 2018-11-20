@@ -3,7 +3,8 @@
 | Endpoint                  | Method | Parameters |
 | ---                       | ---    | --- |
 | /api/getBalance           | POST   | from_account:String ethereum account hash. |
-| /api/createNewAccount     | GET    | from_account:String\n privateKey:String\n to_account:String\n ethValue:String\n |
+| /api/createNewAccount     | GET    | from_account:String
+privateKey:String\n to_account:String\n ethValue:String\n |
 | /api/transferEth          | POST   | from_account:String\n privateKey:String\n to_account:String\n ethValue:String\n |
 | /api/verifyContract       | POST   | from_account:String\n privateKey:String\n to_account:String\n ethValue:String\n |
 | /api/signup               | POST   | from_account:String\n privateKey:String\n to_account:String\n ethValue:String\n |

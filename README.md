@@ -1,7 +1,8 @@
-# agrichain-ethereum-api
-
+# Agrichain - RESTful API Service
 
 Ethereum Smart Contract deployed on Rinkeby Test Network [0xb8Ebea87fF6cB183Bea5c5C75a5923EeDb261d2e](https://rinkeby.etherscan.io/address/0xb8Ebea87fF6cB183Bea5c5C75a5923EeDb261d2e).
+
+Front-end with Metamask [Ethereum POC](https://papandas.github.io/Agrichain-Ethereum-POC/).
 
 
 | Endpoint                  | Method | Parameters |

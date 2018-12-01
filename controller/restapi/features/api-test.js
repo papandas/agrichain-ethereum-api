@@ -23,9 +23,6 @@ const { ABI } = require('../../ABI');
 
 
 
-const ethAmt = '0.05';
-const adminAcc = '0xaE0ba611603Ec52104c9aB52deDA584806BBEc14';
-const privateKey = '687d850ccdb847b79610a2def6cdb132a0e61457f67b9c9d8b9bcf9d5b9e507b';
 
 /**
  * ORDERS

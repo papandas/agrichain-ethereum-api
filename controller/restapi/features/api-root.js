@@ -23,12 +23,6 @@ const ContractAddress = '0xb8Ebea87fF6cB183Bea5c5C75a5923EeDb261d2e'; // '0xC0E7
 const { ABI } = require('../../ABI');
 
 
-
-const ethAmt = '0.05';
-const adminAcc = '0xaE0ba611603Ec52104c9aB52deDA584806BBEc14';
-const privateKey = '687d850ccdb847b79610a2def6cdb132a0e61457f67b9c9d8b9bcf9d5b9e507b';
-
-
 exports.postAssets = function(req,res,next){
     const { from_account, privateKey, harvest, commodity, acres, _yield, basic, Insurance, costs, sellprice} = req.body; 
 
